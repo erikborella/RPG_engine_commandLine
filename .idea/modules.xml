@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/RPG/RPG.iml" filepath="$PROJECT_DIR$/RPG/RPG.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/RPG_engine_commandLine.iml" filepath="$PROJECT_DIR$/.idea/RPG_engine_commandLine.iml" />
     </modules>
   </component>
