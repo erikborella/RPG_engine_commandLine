@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4f01a2fe-378c-498e-ab29-8e97cee9004e" name="Default Changelist" comment="" />
+    <list default="true" id="4f01a2fe-378c-498e-ab29-8e97cee9004e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/RPG/src/core/GameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/RPG/src/core/GameObject.java" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,10 +22,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/RPG/src/core/idControl/GameObject.java">
+        <entry file="file://$PROJECT_DIR$/RPG/src/core/GameObject.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="46">
-              <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+              <caret line="2" column="15" selection-start-line="2" selection-start-column="15" selection-end-line="2" selection-end-column="15" />
             </state>
           </provider>
         </entry>
@@ -46,6 +48,7 @@
         <option value="$PROJECT_DIR$/core/sla.java" />
         <option value="$PROJECT_DIR$/sla.java" />
         <option value="$PROJECT_DIR$/RPG/src/core/idControl/GameObject.java" />
+        <option value="$PROJECT_DIR$/RPG/src/core/GameObject.java" />
       </list>
     </option>
   </component>
@@ -56,7 +59,7 @@
     <option name="height" value="640" />
   </component>
   <component name="ProjectView">
-    <navigator proportions="" version="1">
+    <navigator currentView="PackagesPane" proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
@@ -84,7 +87,7 @@
               <item name="RPG_engine_commandLine" type="462c0819:PsiDirectoryNode" />
               <item name="RPG" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="idControl" type="462c0819:PsiDirectoryNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -100,7 +103,7 @@
             <path>
               <item name="RPG_engine_commandLine" type="58d84e3e:PackageViewProjectNode" />
               <item name="RPG" type="616d4139:PackageViewModuleNode" />
-              <item name="core.idControl" type="1f31426a:PackageElementNode" />
+              <item name="core" type="1f31426a:PackageElementNode" />
             </path>
           </expand>
           <select />
@@ -109,7 +112,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551208634965" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551208733252" />
     <property name="last_opened_file_path" value="$USER_HOME$/IdeaProjects/RPG" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -239,10 +242,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/RPG/src/core/idControl/GameObject.java">
+    <entry file="file://$PROJECT_DIR$/RPG/src/core/GameObject.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="46">
-          <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+          <caret line="2" column="15" selection-start-line="2" selection-start-column="15" selection-end-line="2" selection-end-column="15" />
         </state>
       </provider>
     </entry>

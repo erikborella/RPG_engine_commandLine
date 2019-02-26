@@ -1,6 +1,6 @@
 package core;
 
-public class GameObject {
+public abstract class GameObject {
 
 
 }
