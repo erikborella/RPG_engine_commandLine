@@ -39,6 +39,11 @@ public class IdListener {
         return false;
     }
 
+    /**
+     * Verifica se o ID passado já existe em algum objeto
+     * @param objectId id para ser comparado
+     * @return boolean - true se existe, false se não existe
+     */
     public static boolean existId(int objectId) {
         for (GameObject compare : idList) {
             if (compare.getId() == objectId) {
