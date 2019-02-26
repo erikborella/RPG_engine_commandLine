@@ -1,6 +1,6 @@
-package core.idControl;
+package core;
 
 public class GameObject {
 
-    
+
 }
