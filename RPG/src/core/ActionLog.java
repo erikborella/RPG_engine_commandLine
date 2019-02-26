@@ -1,5 +1,8 @@
 package core;
 
+/**
+ * Retorna uma ação
+ */
 public class ActionLog {
 
     private String message;
@@ -7,10 +10,18 @@ public class ActionLog {
     private double mpDamage;
     private double stamina;
 
+    /**
+     * Informa ao usuário as consequências de suas ações
+     * @return
+     */
     public String getMessage() {
         return message;
     }
 
+    /**
+     *
+     * @return
+     */
     public double getHpDamage() {
         return hpDamage;
     }
