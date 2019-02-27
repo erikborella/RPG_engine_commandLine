@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 /**
  * Essa classe vai manter uma informação de todos os objetos criados no jogo
+ * @version 1.0
  */
 public class IdListener {
 
@@ -14,7 +15,7 @@ public class IdListener {
     /**
      * Adiciona o objeto passado como parametro no listener
      * @param newObject Objeto novo a ser adicionado
-     * @return boolean - true se o objeto foi adicionado com sucesso, false se um objeto com o mesmo id já esta adicionado
+     * @return true se o objeto foi adicionado com sucesso, false se um objeto com o mesmo id já esta adicionado
      */
     public static boolean add(GameObject newObject) {
         if (!existId(newObject)) {
@@ -28,7 +29,7 @@ public class IdListener {
     /**
      * Verifica se o objeto(id) passado como parametro já existe na lista
      * @param object objeto a ser comparado
-     * @return boolean - true se existe, false se não existe
+     * @return true se existe, false se não existe
      */
     public static boolean existId(GameObject object) {
         for (GameObject compare : idList) {
@@ -42,7 +43,7 @@ public class IdListener {
     /**
      * Verifica se o ID passado já existe em algum objeto
      * @param objectId id para ser comparado
-     * @return boolean - true se existe, false se não existe
+     * @return true se existe, false se não existe
      */
     public static boolean existId(int objectId) {
         for (GameObject compare : idList) {
