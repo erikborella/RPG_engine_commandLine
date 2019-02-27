@@ -77,5 +77,6 @@ public abstract class GameObject {
         return size;
     }
 
+
     public abstract ActionLog action();
 }
