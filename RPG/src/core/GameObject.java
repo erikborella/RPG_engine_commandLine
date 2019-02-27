@@ -11,7 +11,7 @@ public abstract class GameObject {
     private String name;
     private String description;
     private int id;
-    private double size;
+    private int size;
     private double weight;
 
     /**
@@ -21,7 +21,7 @@ public abstract class GameObject {
      * @param size tamanho que um objeto vai ocupar em um inventario
      * @param weight Peso do objeto
      */
-    public GameObject(String name, String description, double size, double weight) {
+    public GameObject(String name, String description, int size, double weight) {
         this.name = name;
         this.description = description;
         this.size = size;
@@ -73,7 +73,9 @@ public abstract class GameObject {
      * Retorna o tamanho do objeto
      * @return tamanho
      */
-    public double getSize() {
+    public int getSize() {
         return size;
     }
+
+    public abstract ActionLog action();
 }
