@@ -1,7 +1,8 @@
 package core;
 
 /**
- * Retorna uma ação
+ * Informção sobre suas ações
+ * @return
  */
 public class ActionLog {
 
@@ -11,7 +12,7 @@ public class ActionLog {
     private double stamina;
 
     /**
-     * Informa ao usuário as consequências de suas ações
+     * Breve mensagem sobre sua ação
      * @return
      */
     public String getMessage() {
@@ -19,17 +20,25 @@ public class ActionLog {
     }
 
     /**
-     *
+     * Retorna quanto hp foi perdido
      * @return
      */
     public double getHpDamage() {
         return hpDamage;
     }
 
+    /**
+     * Retorna quanto mp foi perdido
+     * @return
+     */
     public double getMpDamage() {
         return mpDamage;
     }
 
+    /**
+     * Retorna quanta stamina foi perdida
+     * @return
+     */
     public double getStamina() {
         return stamina;
     }
