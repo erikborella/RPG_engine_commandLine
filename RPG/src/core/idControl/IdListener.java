@@ -77,4 +77,13 @@ public class IdListener {
          }
          return arr;
      }
+
+     public static GameObject getObjectById(int id) {
+        for (GameObject arr : getGameObjects()) {
+            if (arr.getId() == id) {
+                return arr;
+            }
+        }
+        return null;
+     }
 }
