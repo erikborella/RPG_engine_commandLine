@@ -4,12 +4,7 @@
     <option name="SCOPE_TYPE" value="4" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4f01a2fe-378c-498e-ab29-8e97cee9004e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/RPG/src/core/GameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/RPG/src/core/GameObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RPG/src/core/idControl/AutoId.java" beforeDir="false" afterPath="$PROJECT_DIR$/RPG/src/core/idControl/AutoId.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RPG/src/core/idControl/IdListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/RPG/src/core/idControl/IdListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RPG/src/tests/IdListenerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/RPG/src/tests/IdListenerTest.java" afterDir="false" />
-    </list>
+    <list default="true" id="4f01a2fe-378c-498e-ab29-8e97cee9004e" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,8 +25,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/RPG/src/core/GameObject.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="27" column="29" selection-end-line="79" />
+            <state relative-caret-position="115">
+              <caret line="17" column="57" lean-forward="true" selection-start-line="17" selection-start-column="57" selection-end-line="17" selection-end-column="57" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#811#812#0" expanded="true" />
@@ -155,7 +150,7 @@
     <property name="Repository.Attach.Annotations" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551287386455" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551287673463" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.includeInheritedMembers" value="true" />
@@ -229,9 +224,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1366" height="741" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.275" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.275" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -373,8 +367,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/RPG/src/core/GameObject.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="27" column="29" selection-end-line="79" />
+        <state relative-caret-position="115">
+          <caret line="17" column="57" lean-forward="true" selection-start-line="17" selection-start-column="57" selection-end-line="17" selection-end-column="57" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#811#812#0" expanded="true" />
