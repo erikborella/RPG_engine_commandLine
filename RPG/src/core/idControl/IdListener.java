@@ -53,6 +53,27 @@ public class IdListener {
         return false;
     }
 
+    /**
+     * Serve para retornar um array com todos os ID's
+     * @return int[] - lista de Id's
+     */
+    public static int[] getIdList() {
+        int[] arr = new int[idList.size()];
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = idList.get(i).getId();
+        }
+        return arr;
+     }
 
-
+    /**
+     * Serve para retornar um array com todos os objetos do jogo
+     * @return GameObject[] - Lista de objetos
+     */
+    public static GameObject[] getGameObjects() {
+        GameObject[] arr = new GameObject[idList.size()];
+         for (int i = 0; i < arr.length; i++) {
+             arr[i] = idList.get(i);
+         }
+         return arr;
+     }
 }

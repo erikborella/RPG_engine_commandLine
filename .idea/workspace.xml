@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4f01a2fe-378c-498e-ab29-8e97cee9004e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/RPG/src/core/unitTest/IdListenerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RPG/RPG.iml" beforeDir="false" afterPath="$PROJECT_DIR$/RPG/RPG.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RPG/src/core/idControl/IdListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/RPG/src/core/idControl/IdListener.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -24,7 +27,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/RPG/src/core/GameObject.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="690">
+            <state relative-caret-position="188">
               <caret line="30" selection-start-line="30" selection-end-line="30" />
               <folding>
                 <element signature="e#412#413#0" expanded="true" />
@@ -56,15 +59,24 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/RPG/src/core/idControl/IdListener.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="142">
-              <caret line="38" column="20" lean-forward="true" selection-start-line="38" selection-start-column="20" selection-end-line="38" selection-end-column="20" />
+            <state relative-caret-position="207">
+              <caret line="9" column="12" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#247#259#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/RPG/src/core/unitTest/IdListenerTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="46">
+              <caret line="2" column="36" lean-forward="true" selection-start-line="2" selection-start-column="36" selection-end-line="2" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -75,6 +87,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -90,6 +103,7 @@
         <option value="$PROJECT_DIR$/RPG/src/core/idControl/AutoId.java" />
         <option value="$PROJECT_DIR$/RPG/src/core/GameObject.java" />
         <option value="$PROJECT_DIR$/RPG/src/core/idControl/IdListener.java" />
+        <option value="$PROJECT_DIR$/RPG/src/core/unitTest/IdListenerTest.java" />
       </list>
     </option>
   </component>
@@ -146,6 +160,38 @@
               <item name="RPG" type="616d4139:PackageViewModuleNode" />
               <item name="core" type="1f31426a:PackageElementNode" />
             </path>
+            <path>
+              <item name="RPG_engine_commandLine" type="58d84e3e:PackageViewProjectNode" />
+              <item name="RPG" type="616d4139:PackageViewModuleNode" />
+              <item name="core" type="1f31426a:PackageElementNode" />
+              <item name="idControl" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="RPG_engine_commandLine" type="58d84e3e:PackageViewProjectNode" />
+              <item name="RPG" type="616d4139:PackageViewModuleNode" />
+              <item name="Libraries" type="5c3f07af:PackageViewLibrariesNode" />
+            </path>
+            <path>
+              <item name="RPG_engine_commandLine" type="58d84e3e:PackageViewProjectNode" />
+              <item name="RPG" type="616d4139:PackageViewModuleNode" />
+              <item name="Libraries" type="5c3f07af:PackageViewLibrariesNode" />
+              <item name="org" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="RPG_engine_commandLine" type="58d84e3e:PackageViewProjectNode" />
+              <item name="RPG" type="616d4139:PackageViewModuleNode" />
+              <item name="Libraries" type="5c3f07af:PackageViewLibrariesNode" />
+              <item name="org" type="1f31426a:PackageElementNode" />
+              <item name="junit" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="RPG_engine_commandLine" type="58d84e3e:PackageViewProjectNode" />
+              <item name="RPG" type="616d4139:PackageViewModuleNode" />
+              <item name="Libraries" type="5c3f07af:PackageViewLibrariesNode" />
+              <item name="org" type="1f31426a:PackageElementNode" />
+              <item name="junit" type="1f31426a:PackageElementNode" />
+              <item name="jupiter.api" type="1f31426a:PackageElementNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -153,12 +199,28 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551212344002" />
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551269550488" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.includeInheritedMembers" value="true" />
+    <property name="create.test.in.the.same.root" value="true" />
     <property name="last_opened_file_path" value="$USER_HOME$/IdeaProjects/RPG" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="MTConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="core.unitTest" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -296,7 +358,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/RPG/src/core/GameObject.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="690">
+        <state relative-caret-position="188">
           <caret line="30" selection-start-line="30" selection-end-line="30" />
           <folding>
             <element signature="e#412#413#0" expanded="true" />
@@ -314,14 +376,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/junit/jupiter/junit-jupiter-api/5.4.0/junit-jupiter-api-5.4.0.jar!/org/junit/jupiter/api/AssertEquals.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/RPG/src/core/idControl/IdListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="142">
-          <caret line="38" column="20" lean-forward="true" selection-start-line="38" selection-start-column="20" selection-end-line="38" selection-end-column="20" />
+        <state relative-caret-position="207">
+          <caret line="9" column="12" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#247#259#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RPG/src/core/unitTest/IdListenerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="2" column="36" lean-forward="true" selection-start-line="2" selection-start-column="36" selection-end-line="2" selection-end-column="36" />
         </state>
       </provider>
     </entry>
