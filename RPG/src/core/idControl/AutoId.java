@@ -3,6 +3,7 @@ package core.idControl;
 /**
  * Classe que sempre nos retornar um novo ID unico
  * De preferencia a usar essa classe ao inves de um ID manual
+ * @version 1.0
  */
 public class AutoId {
 

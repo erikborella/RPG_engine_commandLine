@@ -8,7 +8,7 @@ import java.net.IDN;
 public class IdListenerTest {
     public class ed extends GameObject {
         public ed(String name, String description, int id, double size) {
-            super(name, description, id, size);
+            super(name, description, size);
         }
     }
 
