@@ -2,7 +2,6 @@ package core;
 
 /**
  * Informção sobre suas ações
- * @return
  */
 public class ActionLog {
 
