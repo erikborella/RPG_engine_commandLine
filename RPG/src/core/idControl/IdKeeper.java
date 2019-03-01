@@ -91,4 +91,18 @@ public class IdKeeper {
         }
         return null;
      }
+
+    /**
+     * Busca um elemento com base no seu nome, retorna o GameObjetct dele se existir
+     * @param name Nome a ser buscado
+     * @return Objeto achado, null = não encontrado
+     */
+    public static GameObject getObjectByName(String name) {
+         for (GameObject arr : getGameObjects()) {
+             if (arr.getName().equals(name)) {
+                 return arr;
+             }
+         }
+         return null;
+     }
 }

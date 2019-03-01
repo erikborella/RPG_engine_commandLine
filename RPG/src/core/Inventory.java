@@ -20,7 +20,7 @@ public class Inventory {
     /**
      * Sem espaço suficiente para adicionar
      */
-    public final int NO_WEIGHT = 1;
+    public final int NO_SIZE = 1;
 
     /**
      * Objeto já se encontra adicionado
@@ -124,7 +124,7 @@ public class Inventory {
      */
     public int addItem(GameObject objectAdd) {
         if (this.getActualSize() + objectAdd.getSize() > this.maxSize) {
-            return NO_WEIGHT;
+            return NO_SIZE;
         } else if (this.existId(objectAdd.getId())) {
             return OBJECT_ALREDY_EXIST;
         } else {
