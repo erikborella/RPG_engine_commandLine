@@ -8,7 +8,7 @@ import java.util.ArrayList;
  * Essa classe vai manter uma informação de todos os objetos criados no jogo
  * @version 1.0
  */
-public class IdListener {
+public class IdKeeper {
 
     private static ArrayList<GameObject> idList = new ArrayList<GameObject>();
 
@@ -78,6 +78,11 @@ public class IdListener {
          return arr;
      }
 
+    /**
+     * Busca um elemento com base no id dele, retorna o GameObject do id
+     * @param id id do elemento a ser buscado
+     * @return Objeto achado, null = não encontrado
+     */
      public static GameObject getObjectById(int id) {
         for (GameObject arr : getGameObjects()) {
             if (arr.getId() == id) {

@@ -1,15 +1,47 @@
 package core;
 
-import core.idControl.IdListener;
+import core.idControl.IdKeeper;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
+/**
+ * Essa classe é um inventario para GameObjects
+ */
 public class Inventory {
     private int maxSize;
     private double maxWeight;
     private ArrayList<GameObject> itens = new ArrayList<GameObject>();
 
+    /**
+     * Objeto adicionado ou removido com sucesso
+     */
+    public final int SUCCESS = 0;
+
+    /**
+     * Sem espaço suficiente para adicionar
+     */
+    public final int NO_WEIGHT = 1;
+
+    /**
+     * Objeto já se encontra adicionado
+     */
+    public final int OBJECT_ALREDY_EXIST = 2;
+
+    /**
+     * Objeto não encontrado no IdKeeper
+     */
+    public final int NULL_OBJECT = 3;
+
+    /**
+     * Objeto não esta adicionado no inventario
+     */
+    public final int OBJECT_NO_IN_INVENTORY = 4;
+
+    /**
+     * Cria um novo inventario com um tamnho maximo e um peso maximo
+     * @param maxSize Tamanho maximo de itens que podem ser colocados
+     * @param maxWeight Peso maximo que voce pode caregar ate ficar pesada
+     */
     public Inventory(int maxSize, int maxWeight) {
         this.maxSize = maxSize;
         this.maxWeight = maxWeight;
@@ -47,21 +79,51 @@ public class Inventory {
         return actualSize;
     }
 
-    public boolean addItem(GameObject objectAdd) {
+    public boolean existId(int objectId) {
+        for (GameObject compare : this.itens) {
+            if (compare.getId() == objectId) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public int addItem(GameObject objectAdd) {
         if (this.getActualSize() + objectAdd.getSize() > this.maxSize) {
-            return false;
+            return NO_WEIGHT;
+        } else if (this.existId(objectAdd.getId())) {
+            return OBJECT_ALREDY_EXIST;
         } else {
             this.itens.add(objectAdd);
-            return true;
+            return SUCCESS;
         }
     }
 
-    public boolean addItem(int id) {
-        GameObject newObject = IdListener.getObjectById(id);
+    public int addItem(int id) {
+        GameObject newObject = IdKeeper.getObjectById(id);
         if (newObject == null) {
-            return false;
+            return NULL_OBJECT;
         } else  {
             return this.addItem(newObject);
+        }
+    }
+
+    public int removeItem(GameObject objectRemove) {
+        for (GameObject object : this.itens) {
+            if (objectRemove == object) {
+                this.itens.remove(object);
+                return SUCCESS;
+            }
+        }
+        return OBJECT_NO_IN_INVENTORY;
+    }
+
+    public int removeItem(int id) {
+        GameObject newObject = IdKeeper.getObjectById(id);
+        if (newObject == null) {
+            return NULL_OBJECT;
+        } else {
+            return this.removeItem(newObject);
         }
     }
 
