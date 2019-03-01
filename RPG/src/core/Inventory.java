@@ -47,22 +47,42 @@ public class Inventory {
         this.maxWeight = maxWeight;
     }
 
+    /**
+     * Retorna o tamanho maximo do inventario
+     * @return tamanho maximo do inventario
+     */
     public int getMaxSize() {
         return maxSize;
     }
 
+    /**
+     * Retorna o peso maximo do inventario
+     * @return peso maximo do inventario
+     */
     public double getMaxWeight() {
         return maxWeight;
     }
 
+    /**
+     * Define o tamanho maximo do inventario
+     * @param maxSize tamanho maximo do inventario
+     */
     public void setMaxSize(int maxSize) {
         this.maxSize = maxSize;
     }
 
+    /**
+     * Define o peso maximo do inventario
+     * @param maxWeight peso maximo do inventario
+     */
     public void setMaxWeight(int maxWeight) {
         this.maxWeight = maxWeight;
     }
 
+    /**
+     * Retorna um vetor de GameObjests com todos os objetos do inventario
+     * @return Objetos do inventario
+     */
     public GameObject[] getItens() {
         GameObject[] inv = new GameObject[itens.size()];
         for (int i = 0; i < inv.length; i++) {
@@ -71,6 +91,10 @@ public class Inventory {
         return inv;
     }
 
+    /**
+     * Retorna a soma do tamanho de todos os itens no iventario
+     * @return tamanho atual do inventario
+     */
     public int getActualSize() {
         int actualSize = 0;
         for (GameObject object: itens) {
@@ -79,6 +103,11 @@ public class Inventory {
         return actualSize;
     }
 
+    /**
+     * verifica se um objeto esta adicionado no inventario pelo id
+     * @param objectId id do objeto
+     * @return true = existe, false = não existe
+     */
     public boolean existId(int objectId) {
         for (GameObject compare : this.itens) {
             if (compare.getId() == objectId) {
@@ -88,6 +117,11 @@ public class Inventory {
         return false;
     }
 
+    /**
+     * Adiciona um item ao inventario pelo objeto, não permite que um mesmo objeto seja duplicado
+     * @param objectAdd Objeto a ser adicionado
+     * @return (ver constantes da classe)
+     */
     public int addItem(GameObject objectAdd) {
         if (this.getActualSize() + objectAdd.getSize() > this.maxSize) {
             return NO_WEIGHT;
@@ -99,6 +133,11 @@ public class Inventory {
         }
     }
 
+    /**
+     * Adiciona um item ao inventario pelo seu id, não permite que um mesmo objeto seja duplicado
+     * @param id id do objeto
+     * @return (ver constantes da classe)
+     */
     public int addItem(int id) {
         GameObject newObject = IdKeeper.getObjectById(id);
         if (newObject == null) {
@@ -108,6 +147,11 @@ public class Inventory {
         }
     }
 
+    /**
+     * Remove um item do inventario
+     * @param objectRemove objeto a ser removido
+     * @return (ver constantes da classe)
+     */
     public int removeItem(GameObject objectRemove) {
         for (GameObject object : this.itens) {
             if (objectRemove == object) {
@@ -118,6 +162,11 @@ public class Inventory {
         return OBJECT_NO_IN_INVENTORY;
     }
 
+    /**
+     * Remove um item do inventario pelo seu id
+     * @param id id do objeto a ser removido
+     * @return (ver constantes da classe)
+     */
     public int removeItem(int id) {
         GameObject newObject = IdKeeper.getObjectById(id);
         if (newObject == null) {
