@@ -1,7 +1,7 @@
 package core;
 
 import core.idControl.AutoId;
-import core.idControl.IdListener;
+import core.idControl.IdKeeper;
 
 /**
  * Classe que serve como base para todos os objetos interajiveis no jogo
@@ -27,6 +27,8 @@ public abstract class GameObject {
         this.size = size;
         this.weight = weight;
         this.id = AutoId.getNewId();
+
+        IdKeeper.add(this);
     }
 
     /**
