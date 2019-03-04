@@ -2,6 +2,8 @@ package core;
 
 import core.idControl.IdKeeper;
 
+import java.awt.*;
+
 /**
  * Classe intepretadora de commandos
  */
@@ -25,38 +27,56 @@ public class CommandInterpreter {
      */
     public String run(String command) {
         String[] commandsSepared = command.split(" ");
-        if (isInventoryOpen) {
-            switch (commandsSepared[0].toLowerCase()) {
-                case "pegar":
-                    return this.getFromInventory(commandsSepared[1]);
-                case "jogar":
-                    if (commandsSepared[1].toLowerCase().equals("fora")) {
-                        return this.removeFromInventoryAndHand(commandsSepared[2]);
-                    }
-                    return "jogar" + commandsSepared[1] + "nao encontrado";
-                case "mostrar":
-                    if (commandsSepared[1].toLowerCase().equals("itens")) {
-                        return this.showInventoryItens();
-                    }
-                    return "mostrar" + commandsSepared[1] + "nao encontrado";
-                case "fechar":
-                    if (commandsSepared[1].toLowerCase().equals("inventario")) {
-                        this.closeInventory();
-                        return "Inventario fechado";
-                    }
+        try {
+            if (isInventoryOpen) {
+                switch (commandsSepared[0].toLowerCase()) {
+                    case "pegar":
+                        return this.getFromInventory(commandsSepared[1]);
+                    case "jogar":
+                        if (commandsSepared[1].toLowerCase().equals("fora")) {
+                            return this.removeFromInventoryAndHand(commandsSepared[2]);
+                        }
+                        return "jogar" + commandsSepared[1] + "nao encontrado";
+                    case "mostrar": case "ver":
+                        if (commandsSepared[1].toLowerCase().equals("itens")) {
+                            return this.showInventoryItens();
+                        }
+                        return "mostrar" + commandsSepared[1] + "nao encontrado";
+                    case "fechar":
+                        if (commandsSepared[1].toLowerCase().equals("inventario")) {
+                            this.closeInventory();
+                            return "Inventario fechado";
+                        }
+                    case "mudar":
+                        if (commandsSepared[1].toLowerCase().equals("nome")
+                                && commandsSepared[2].toLowerCase().equals("de")
+                                && commandsSepared[4].toLowerCase().equals("para")) {
+                            return this.renameInventoryObject(commandsSepared[3], commandsSepared[5]);
+                        }
+                        return command + " nao reconhecido";
+                }
+            } else {
+                switch (commandsSepared[0].toLowerCase()) {
+                    case "abrir":
+                        if (commandsSepared[1].toLowerCase().equals("inventario")) {
+                            this.openInventory();
+                            return "Inventario aberto";
+                        }
+                    case "pegar":
+                        return this.getFromWorld(commandsSepared[1]);
+                    case "mostrar": case "ver":
+                        if (commandsSepared[1].toLowerCase().equals("itens")
+                                && commandsSepared[2].toLowerCase().equals("do")
+                                && commandsSepared[3].toLowerCase().equals("inventario")) {
+                            return this.showInventoryItens();
+                        }
+                        return command + " nao reconhecido";
+                }
             }
-        } else {
-            switch (commandsSepared[0].toLowerCase()) {
-                case "abrir":
-                    if (commandsSepared[1].toLowerCase().equals("inventario")) {
-                        this.openInventory();
-                        return "Inventario aberto";
-                    }
-                case "pegar":
-                    return this.getFromWorld(commandsSepared[1]);
-            }
+            return  command + " nao reconhecido";
+        } catch (ArrayIndexOutOfBoundsException e) {
+            return  command + " nao reconhecido 12";
         }
-        return  command + " nao reconhecido";
     }
 
     private String getFromWorld(String obj) {
@@ -128,6 +148,22 @@ public class CommandInterpreter {
         }
 
         return temp;
+    }
+
+    private String renameInventoryObject(String obj, String newName) {
+        GameObject object = IdKeeper.getObjectByName(obj);
+
+        if (object == null) {
+            return obj + "nao esta no seu inventario";
+        }
+        if (!control.getInv().existId(object.getId())) {
+            return obj + "nao esta no seu inventario";
+        }
+        if (newName.contains(" ")) {
+            return "O nome nao pode conter espacos";
+        }
+        object.setName(newName);
+        return obj + " agora se chama " + object.getName();
     }
 
     private void openInventory() {

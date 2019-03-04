@@ -27,7 +27,6 @@ public class runer {
 
         String command = "";
         while (!command.equals("sair")) {
-            System.out.println("");
             if (commandInterpreter.isInventoryOpen()) {
                 System.out.println("** Seu iventario esta aberto");
             }
