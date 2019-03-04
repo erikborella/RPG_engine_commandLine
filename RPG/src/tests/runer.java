@@ -4,14 +4,36 @@ import core.CommandInterpreter;
 import core.Inventory;
 import core.Player;
 
+import java.util.Scanner;
+
 public class runer {
 
     public static void main(String[] args) {
-        Player B = new Player("Be", "O que so faz mierda", 1000, 100, 200, 10, 1412, new Inventory(200, 69));
-        Sword espada = new Sword("Agamenon", "Super espada", 2, 5);
+        Sword espada1 = new Sword("Agameno", "uma coisa foda", 10, 20);
+        Sword espada2 = new Sword("Agameno1", "uma coisa foda", 10, 20);
+        Sword espada3 = new Sword("Agameno2", "uma coisa foda", 10, 20);
+        Sword espada4 = new Sword("Agameno3", "uma coisa foda", 10, 20);
 
-        CommandInterpreter commandInterpreter = new CommandInterpreter(B);
-        System.out.println(commandInterpreter.run("Pegar Agamenon"));
-        System.out.println(commandInterpreter.run("Jogar fora Agamenon"));
+        Scanner input = new Scanner(System.in);
+        System.out.println("Digite o nome do seu personagem:");
+        String name = input.nextLine();
+        System.out.println("Agora me conte um pouco dele: ");
+        String desc = input.nextLine();
+
+        Player p = new Player(name, desc, 1000, 100, 100, 100,
+                100, 10, new Inventory(11));
+
+        CommandInterpreter commandInterpreter = new CommandInterpreter(p);
+
+        String command = "";
+        while (!command.equals("sair")) {
+            System.out.println("");
+            if (commandInterpreter.isInventoryOpen()) {
+                System.out.println("** Seu iventario esta aberto");
+            }
+            System.out.println("me diga o que fazer");
+            command = input.nextLine();
+            System.out.println(commandInterpreter.run(command));
+        }
     }
 }

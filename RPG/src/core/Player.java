@@ -1,17 +1,9 @@
 package core;
 
+import core.idControl.IdKeeper;
+
 public class Player extends GameObject {
 
-    public Player(String name, String description, int size, double weight, int maxMana, int maxHealth, int maxStamina, Inventory inv) {
-        super(name, description, size, weight);
-        this.maxMana = maxMana;
-        this.mana = maxMana;
-        this.maxHealth = maxHealth;
-        this.health = maxHealth;
-        this.maxStamina = maxStamina;
-        this.stamina = maxStamina;
-        this.inv = inv;
-    }
     private int maxMana;
     private int maxHealth;
     private int maxStamina;
@@ -20,8 +12,23 @@ public class Player extends GameObject {
     private double health;
     private double stamina;
 
+    private double maxCarryWeight;
+
     private GameObject hand;
     private Inventory inv;
+
+    public Player(String name, String description, int size, double weight, int maxMana, int maxHealth, int maxStamina,
+                  double maxCarryWeight, Inventory inv) {
+        super(name, description, size, weight);
+        this.maxMana = maxMana;
+        this.mana = maxMana;
+        this.maxHealth = maxHealth;
+        this.health = maxHealth;
+        this.maxStamina = maxStamina;
+        this.stamina = maxStamina;
+        this.maxCarryWeight = maxCarryWeight;
+        this.inv = inv;
+    }
 
     public int getMaxMana() {
         return maxMana;
@@ -81,6 +88,21 @@ public class Player extends GameObject {
 
     public void setHand(GameObject hand) {
         this.hand = hand;
+    }
+
+    public double getMaxCarryWeight() {
+        return maxCarryWeight;
+    }
+
+    public void setMaxCarryWeight(double maxCarryWeight) {
+        this.maxCarryWeight = maxCarryWeight;
+    }
+
+    public int removeItem(GameObject object) {
+        if (object == this.hand) {
+            this.hand = null;
+        }
+        return this.inv.removeItem(object);
     }
 
     @Override

@@ -79,6 +79,13 @@ public abstract class GameObject {
         return size;
     }
 
+    /**
+     * Retorna o peso do objeto
+     * @return peso
+     */
+    public double getWeight() {
+        return weight;
+    }
 
     public abstract ActionLog action();
 }

@@ -9,7 +9,6 @@ import java.util.ArrayList;
  */
 public class Inventory {
     private int maxSize;
-    private double maxWeight;
     private ArrayList<GameObject> itens = new ArrayList<GameObject>();
 
     /**
@@ -38,13 +37,11 @@ public class Inventory {
     public final int OBJECT_NO_IN_INVENTORY = 4;
 
     /**
-     * Cria um novo inventario com um tamnho maximo e um peso maximo
+     * Cria um novo inventario com um tamnho maximo
      * @param maxSize Tamanho maximo de itens que podem ser colocados
-     * @param maxWeight Peso maximo que voce pode caregar ate ficar pesada
      */
-    public Inventory(int maxSize, int maxWeight) {
+    public Inventory(int maxSize) {
         this.maxSize = maxSize;
-        this.maxWeight = maxWeight;
     }
 
     /**
@@ -56,27 +53,11 @@ public class Inventory {
     }
 
     /**
-     * Retorna o peso maximo do inventario
-     * @return peso maximo do inventario
-     */
-    public double getMaxWeight() {
-        return maxWeight;
-    }
-
-    /**
      * Define o tamanho maximo do inventario
      * @param maxSize tamanho maximo do inventario
      */
     public void setMaxSize(int maxSize) {
         this.maxSize = maxSize;
-    }
-
-    /**
-     * Define o peso maximo do inventario
-     * @param maxWeight peso maximo do inventario
-     */
-    public void setMaxWeight(int maxWeight) {
-        this.maxWeight = maxWeight;
     }
 
     /**
@@ -101,6 +82,18 @@ public class Inventory {
             actualSize += object.getSize();
         }
         return actualSize;
+    }
+
+    /**
+     * Retorna a soma dos pesos de todos os itens do inventario
+     * @return peso atual do inventario
+     */
+    public double getActualWeight() {
+        double actualWeight = 0;
+        for (GameObject object: itens) {
+            actualWeight += object.getWeight();
+        }
+        return actualWeight;
     }
 
     /**
@@ -164,6 +157,7 @@ public class Inventory {
 
     /**
      * Remove um item do inventario pelo seu id
+     * **ATENÇÃO: Caso voce remova um objeto do seu iventario e algum objeto estiver segurando ele, ele não ira ser largado, para evitar isso usse o metodo removeItem da classe Player
      * @param id id do objeto a ser removido
      * @return (ver constantes da classe)
      */
