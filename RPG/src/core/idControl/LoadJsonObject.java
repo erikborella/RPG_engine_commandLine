@@ -1,6 +1,7 @@
 package core.idControl;
 
 
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -25,7 +26,8 @@ public class LoadJsonObject {
         }
         try {
             jsonObject = (JSONObject) parser.parse(new FileReader(this.jsonPath));
-            System.out.println(jsonObject.toString());
+            JSONArray jsonArray = (JSONArray) jsonObject.get("melee");
+            System.out.println(jsonArray.toString());
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
