@@ -3,7 +3,7 @@ package core.weapons;
 import core.ActionLog;
 import core.GameObject;
 
-class Melee extends GameObject {
+public class Melee extends GameObject {
     public Melee(String name, String description, int size, double weight) {
         super(name, description, size, weight);
     }

@@ -5,7 +5,7 @@ import core.Inventory;
 import core.Player;
 import core.idControl.LoadJsonObject;
 import core.Dice;
-import core.weapons.Sword;
+import core.weapons.Melee;
 
 import java.io.File;
 import java.util.Scanner;
@@ -14,10 +14,10 @@ public class runer {
 
     public static void main(String[] args) {
         Dice dice = new Dice();
-        Sword espada1 = new Sword("Agameno", "uma coisa foda", 10, 20);
-        Sword espada2 = new Sword("Agameno1", "uma coisa foda", 10, 20);
-        Sword espada3 = new Sword("Agameno2", "uma coisa foda", 10, 20);
-        Sword espada4 = new Sword("Agameno3", "uma coisa foda", 10, 20);
+        Melee espada1 = new Melee("Agameno", "uma coisa foda", 10, 20);
+        Melee espada2 = new Melee("Agameno1", "uma coisa foda", 10, 20);
+        Melee espada3 = new Melee("Agameno2", "uma coisa foda", 10, 20);
+        Melee espada4 = new Melee("Agameno3", "uma coisa foda", 10, 20);
 
         LoadJsonObject loadJsonObject = new LoadJsonObject(
                 new File("/home/erik/Documentos/RPG_engine_commandLine/RPG/src/core/weapons/weaponsArray.json"));
