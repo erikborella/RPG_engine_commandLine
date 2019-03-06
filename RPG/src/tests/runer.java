@@ -3,7 +3,9 @@ package tests;
 import core.CommandInterpreter;
 import core.Inventory;
 import core.Player;
+import core.idControl.LoadJsonObject;
 
+import java.io.File;
 import java.util.Scanner;
 
 public class runer {
@@ -13,6 +15,9 @@ public class runer {
         Sword espada2 = new Sword("Agameno1", "uma coisa foda", 10, 20);
         Sword espada3 = new Sword("Agameno2", "uma coisa foda", 10, 20);
         Sword espada4 = new Sword("Agameno3", "uma coisa foda", 10, 20);
+
+        LoadJsonObject loadJsonObject = new LoadJsonObject(new File("/home/erik/Documentos/RPG_engine_commandLine/RPG/src/core/weapons.json"));
+        loadJsonObject.load();
 
         Scanner input = new Scanner(System.in);
         System.out.println("Digite o nome do seu personagem:");
