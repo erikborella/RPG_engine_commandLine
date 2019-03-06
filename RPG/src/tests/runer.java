@@ -25,7 +25,6 @@ public class runer {
 
         Scanner input = new Scanner(System.in);
         System.out.println("Digite o nome do seu personagem:");
-        System.out.println(dice.d20());
         String name = input.nextLine();
         System.out.println("Agora me conte um pouco dele: ");
         String desc = input.nextLine();

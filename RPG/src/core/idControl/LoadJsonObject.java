@@ -10,6 +10,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Iterator;
 
 public class LoadJsonObject {
     File jsonPath;
@@ -27,7 +28,12 @@ public class LoadJsonObject {
         try {
             jsonObject = (JSONObject) parser.parse(new FileReader(this.jsonPath));
             JSONArray jsonArray = (JSONArray) jsonObject.get("melee");
-            System.out.println(jsonArray.toString());
+
+            for (int i = 0; i < jsonArray.size(); i++) {
+                JSONObject item = (JSONObject) jsonArray.get(i);
+                System.out.println(item.get("name"));
+
+            }
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -38,5 +44,9 @@ public class LoadJsonObject {
         }
 
         return true;
+    }
+
+    private void loadMelee() {
+        
     }
 }
