@@ -4,8 +4,12 @@ import core.ActionLog;
 import core.GameObject;
 
 public class Melee extends GameObject {
-    public Melee(String name, String description, int size, double weight) {
+
+    private double damage;
+
+    public Melee(String name, String description, int size, double weight, double damage) {
         super(name, description, size, weight);
+        this.damage = damage;
     }
 
     public ActionLog action() {
