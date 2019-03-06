@@ -19,7 +19,8 @@ public class runer {
         Sword espada3 = new Sword("Agameno2", "uma coisa foda", 10, 20);
         Sword espada4 = new Sword("Agameno3", "uma coisa foda", 10, 20);
 
-        LoadJsonObject loadJsonObject = new LoadJsonObject(new File("/home/erik/Documentos/RPG_engine_commandLine/RPG/src/core/weapons.json"));
+        LoadJsonObject loadJsonObject = new LoadJsonObject(
+                new File("/home/erik/Documentos/RPG_engine_commandLine/RPG/src/core/weapons/weaponsArray.json"));
         loadJsonObject.load();
 
         Scanner input = new Scanner(System.in);

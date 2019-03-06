@@ -1,0 +1,67 @@
+{
+  "melee": [
+    {
+      "name":"Adaga",
+      "description":"Lançavel, leve e delicada",
+      "size":"1",
+      "weight":"1"
+    }, {
+      "name":"Espadim",
+      "description":"Delicada",
+      "size":"1",
+      "weight":"2"
+    }, {
+      "name":"Machado_de_Guerra",
+      "description":"Versátil",
+      "size":"2",
+      "weight":"4"
+    }, {
+      "name":"Machado_Grande",
+      "description":"Pesado e 2 mãos",
+      "size":"3",
+      "weight":"7"
+    }
+  ],
+
+  "shield": [
+    {
+      "name":"Escudo_de_Madeira",
+      "description":"Pouca resistência",
+      "size":"2",
+      "weight":"4"
+    }
+  ],
+
+  "ranged": [
+    {
+      "name":"Arco_Longo_de_Madeira",
+      "description":"Pesado, 2 mãos e precisa de munição",
+      "size":"2",
+      "weight":"2"
+    }, {
+      "name":"Arco_Curto_de_Madeira",
+      "description":"2 mãos e precisa de munição",
+      "size":"1",
+      "weight":"2"
+    }
+  ],
+
+  "ammunition": [
+    {
+      "name":"Flecha_de_Madeira",
+      "description":"Pouco efetivas",
+      "size":"1",
+      "weight":"0.1"
+    }
+  ],
+
+  "mage": [
+    {
+      "name":"Flecha_de_Madeira",
+      "description":"Pouco efetivas",
+      "size":"1",
+      "weight":"0.1"
+    }
+  ]
+
+}
