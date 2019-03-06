@@ -16,13 +16,13 @@
         },
         "axes":{
             "battleaxe":{
-                "name":"Machado de Guerra",
+                "name":"Machado_de_Guerra",
                 "description":"Versátil",
                 "size":"2",
                 "weight":"4"
             },
             "greataxe":{
-                "name":"Machado Grande",
+                "name":"Machado_Grande",
                 "description":"Pesado e 2 mãos",
                 "size":"3",
                 "weight":"7"
@@ -31,7 +31,7 @@
     },
     "shields":{
         "wooden":{
-            "name":"Escudo de Madeira",
+            "name":"Escudo_de_Madeira",
             "description":"Pouca resistência",
             "size":"2",
             "weight":"4"
@@ -40,13 +40,13 @@
     "ranged":{
         "bows":{
             "longbow":{
-                "name":"Arco Longo de Madeira",
+                "name":"Arco_Longo_de_Madeira",
                 "description":"Pesado, 2 mãos e precisa de munição",
                 "size":"2",
                 "weight":"2"
             },
             "shortbow":{
-                "name":"Arco Curto de Madeira",
+                "name":"Arco_Curto_de_Madeira",
                 "description":"2 mãos e precisa de munição",
                 "size":"1",
                 "weight":"2"
@@ -54,7 +54,7 @@
         },
         "ammunition":{
             "woodenArrow":{
-                "name":"Flecha de Madeira",
+                "name":"Flecha_de_Madeira",
                 "description":"Pouco efetivas",
                 "size":"1",
                 "weight":"0.1"
@@ -64,7 +64,7 @@
     "mage":{
         "quarterstaffs":{
             "wooden":{
-                "name":"Flecha de Madeira",
+                "name":"Flecha_de_Madeira",
                 "description":"Pouco efetivas",
                 "size":"1",
                 "weight":"0.1"

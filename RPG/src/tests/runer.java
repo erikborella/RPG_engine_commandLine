@@ -4,6 +4,7 @@ import core.CommandInterpreter;
 import core.Inventory;
 import core.Player;
 import core.idControl.LoadJsonObject;
+import core.Dice;
 
 import java.io.File;
 import java.util.Scanner;
@@ -11,6 +12,7 @@ import java.util.Scanner;
 public class runer {
 
     public static void main(String[] args) {
+        Dice dice = new Dice();
         Sword espada1 = new Sword("Agameno", "uma coisa foda", 10, 20);
         Sword espada2 = new Sword("Agameno1", "uma coisa foda", 10, 20);
         Sword espada3 = new Sword("Agameno2", "uma coisa foda", 10, 20);
@@ -21,6 +23,7 @@ public class runer {
 
         Scanner input = new Scanner(System.in);
         System.out.println("Digite o nome do seu personagem:");
+        System.out.println(dice.d20());
         String name = input.nextLine();
         System.out.println("Agora me conte um pouco dele: ");
         String desc = input.nextLine();
