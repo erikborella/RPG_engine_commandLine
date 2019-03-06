@@ -1,4 +1,4 @@
-package tests;
+package core.weapons;
 
 import core.ActionLog;
 import core.GameObject;

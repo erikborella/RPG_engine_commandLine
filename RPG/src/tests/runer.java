@@ -5,6 +5,7 @@ import core.Inventory;
 import core.Player;
 import core.idControl.LoadJsonObject;
 import core.Dice;
+import core.weapons.Sword;
 
 import java.io.File;
 import java.util.Scanner;
