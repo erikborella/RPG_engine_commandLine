@@ -5,9 +5,9 @@ import core.GameObject;
 
 public class Melee extends GameObject {
 
-    private double damage;
+    private String damage;
 
-    public Melee(String name, String description, int size, double weight, double damage) {
+    public Melee(String name, String description, int size, double weight, String damage) {
         super(name, description, size, weight);
         this.damage = damage;
     }

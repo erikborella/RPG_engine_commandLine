@@ -1,6 +1,9 @@
 package core.idControl;
 
 
+import core.weapons.Ammunition;
+import core.weapons.Melee;
+import core.weapons.Ranged;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -28,12 +31,9 @@ public class LoadJsonObject {
         try {
             jsonObject = (JSONObject) parser.parse(new FileReader(this.jsonPath));
             JSONArray jsonArray = (JSONArray) jsonObject.get("melee");
+            this.loadMelee(jsonArray);
+            jsonArray = (JSONArray) jsonObject.get("ranged");
 
-            for (int i = 0; i < jsonArray.size(); i++) {
-                JSONObject item = (JSONObject) jsonArray.get(i);
-                System.out.println(item.get("name"));
-
-            }
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -46,7 +46,24 @@ public class LoadJsonObject {
         return true;
     }
 
-    private void loadMelee() {
-        
+    private void loadMelee(JSONArray array) {
+        for (int i = 0; i < array.size(); i++) {
+            String name = (String) ( (JSONObject) array.get(i) ).get("name");
+            String description = (String) ( (JSONObject) array.get(i) ).get("description");
+            int size = Integer.parseInt((String) ( (JSONObject) array.get(i) ).get("size"));
+            double weight = Double.parseDouble((String) ( (JSONObject) array.get(i) ).get("weight"));
+            new Melee(name, description, size, weight, "d");
+        }
+    }
+
+    private void loadRanged(JSONArray array) {
+        for (int i = 0; i < array.size(); i++) {
+            String name = (String) ( (JSONObject) array.get(i) ).get("name");
+            String description = (String) ( (JSONObject) array.get(i) ).get("description");
+            int size = Integer.parseInt((String) ( (JSONObject) array.get(i) ).get("size"));
+            double weight = Double.parseDouble((String) ( (JSONObject) array.get(i) ).get("weight"));
+
+            //TODO: CREATE A RANGED OBJECTS
+        }
     }
 }

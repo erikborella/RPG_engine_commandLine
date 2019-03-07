@@ -3,7 +3,7 @@ package core.weapons;
 import core.ActionLog;
 import core.GameObject;
 
-class Ranged extends GameObject {
+public class Ranged extends GameObject {
 
     private int distance;
     private Ammunition ammunition;
