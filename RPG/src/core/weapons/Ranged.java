@@ -6,12 +6,12 @@ import core.GameObject;
 public class Ranged extends GameObject {
 
     private int distance;
-    private Ammunition ammunition;
+    private String damage;
 
-    public Ranged(String name, String description, int size, double weight, int distance, Ammunition ammunition) {
+    public Ranged(String name, String description, int size, double weight, int distance, String damage) {
         super(name, description, size, weight);
         this.distance = distance;
-        this.ammunition = ammunition;
+        this.damage = damage;
     }
 
     public ActionLog action() {

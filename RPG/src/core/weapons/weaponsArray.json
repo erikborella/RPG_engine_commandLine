@@ -43,13 +43,15 @@
       "description":"Pesado, 2 mãos e precisa de munição",
       "size":"2",
       "weight":"2",
-      "damage": "1d8"
+      "damage": "1d8",
+      "distance": "3"
     }, {
       "name":"Arco_Curto_de_Madeira",
       "description":"2 mãos e precisa de munição",
       "size":"1",
       "weight":"2",
-      "damage": "1d6"
+      "damage": "1d6",
+      "distance": "2"
     }
   ],
 
@@ -58,7 +60,8 @@
       "name":"Flecha_de_Madeira",
       "description":"Pouco efetivas",
       "size":"1",
-      "weight":"0.1"
+      "weight":"0.1",
+      "damage": "1"
     }
   ],
 
