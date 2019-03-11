@@ -1,9 +1,7 @@
 package core.idControl;
 
 
-import core.weapons.Ammunition;
-import core.weapons.Melee;
-import core.weapons.Ranged;
+import core.weapons.*;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -37,7 +35,10 @@ public class LoadJsonObject {
             this.loadRanged(jsonArray);
             jsonArray = (JSONArray) jsonObject.get("ammunition");
             this.loadAmmunition(jsonArray);
-            IdKeeper.existId(1);
+            jsonArray = (JSONArray) jsonObject.get("shield");
+            this.loadShield(jsonArray);
+            jsonArray = (JSONArray) jsonObject.get("magic");
+            this.loadMagic(jsonArray);
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -95,7 +96,18 @@ public class LoadJsonObject {
             double weight = Double.parseDouble((String) ( (JSONObject) array.get(i) ).get("weight"));
             String defence = (String) ( (JSONObject) array.get(i) ).get("defence");
 
-            //TODO> shield
+            new Shield(name, description, size, weight, defence);
+        }
+    }
+
+    private void loadMagic(JSONArray array) {
+        for (int i = 0; i < array.size(); i++) {
+            String name = (String) ( (JSONObject) array.get(i) ).get("name");
+            String description = (String) ( (JSONObject) array.get(i) ).get("description");
+            int size = Integer.parseInt((String) ( (JSONObject) array.get(i) ).get("size"));
+            double weight = Double.parseDouble((String) ( (JSONObject) array.get(i) ).get("weight"));
+
+            new Magic(name, description, size, weight);
         }
     }
 }

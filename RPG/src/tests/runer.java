@@ -3,6 +3,8 @@ package tests;
 import core.CommandInterpreter;
 import core.Inventory;
 import core.Player;
+import core.idControl.IdKeeper;
+import core.idControl.IdKeeperInventory;
 import core.idControl.LoadJsonObject;
 import core.Dice;
 import core.map.MapCreator;
@@ -14,10 +16,10 @@ import java.util.Scanner;
 public class runer {
 
     public static void main(String[] args) {
-        MapCreator.gerateTemplate(new File("/home/erik/Documentos/RPG_engine_commandLine/RPG/src/mapTest/testMap.map"), 10, 50);
-//        LoadJsonObject loadJsonObject = new LoadJsonObject(
-//                new File("/home/erik/Documentos/RPG_engine_commandLine/RPG/src/core/weapons/weaponsArray.json"));
-//        loadJsonObject.load();
+        LoadJsonObject loadJsonObject = new LoadJsonObject(
+                new File("/home/erik/Documentos/RPG_engine_commandLine/RPG/src/core/weapons/weaponsArray.json"));
+        loadJsonObject.load();
+        IdKeeperInventory.add(IdKeeper.getObjectById(0));
 //
 //        Scanner input = new Scanner(System.in);
 //        System.out.println("Digite o nome do seu personagem:");

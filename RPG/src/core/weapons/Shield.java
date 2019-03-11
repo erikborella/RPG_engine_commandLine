@@ -5,9 +5,9 @@ import core.GameObject;
 
 public class Shield extends GameObject {
 
-    private int defence;
+    private String defence;
 
-    public Shield(String name, String description, int size, double weight, int defence) {
+    public Shield(String name, String description, int size, double weight, String defence) {
         super(name, description, size, weight);
         this.defence = defence;
     }

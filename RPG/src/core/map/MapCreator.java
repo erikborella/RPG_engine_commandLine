@@ -17,7 +17,7 @@ public class MapCreator {
         if (filePath.exists()) {
             return false;
         }
-        StringBuilder temp = new StringBuilder(String.format("(%d, %d)\n", height, weight));
+        StringBuilder temp = new StringBuilder("");
         for (int i = 0; i < height; i++) {
             for (int j = 0; j < weight; j++) {
                 if (i == 0 && j == 0) {
