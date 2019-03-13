@@ -7,12 +7,10 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-import javax.print.attribute.standard.RequestingUserName;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Iterator;
 
 public class LoadJsonObject {
     File jsonPath;
@@ -29,6 +27,7 @@ public class LoadJsonObject {
         }
         try {
             jsonObject = (JSONObject) parser.parse(new FileReader(this.jsonPath));
+
             JSONArray jsonArray = (JSONArray) jsonObject.get("melee");
             this.loadMelee(jsonArray);
             jsonArray = (JSONArray) jsonObject.get("ranged");

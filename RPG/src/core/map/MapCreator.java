@@ -1,10 +1,143 @@
 package core.map;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.HashMap;
 
+/**
+ * @version 0.5
+ */
 public class MapCreator {
+
+    private class MapCord {
+        public int i;
+        public int j;
+
+        public MapCord(int i, int j) {
+            this.i = i;
+            this.j = j;
+        }
+
+        @Override
+        public boolean equals(Object obj) {
+            MapCord a = (MapCord) obj;
+            return this.i == a.i && this.j == a.j;
+        }
+    }
+
+    private static ArrayList<File> blacklist = new ArrayList<File>();
+    private HashMap<MapCord, String> symbolsCache = new HashMap<MapCord, String>();
+    private File map;
+
+    /**
+     * Seta o mapa a ser serializado
+     * @param map arquivo do mapa
+     * @throws FileNotFoundException Arquivo não existente
+     */
+    public MapCreator(File map) throws FileNotFoundException {
+        if (!map.exists()) {
+            throw new FileNotFoundException();
+        }
+        this.map = map;
+    }
+
+    public void serializeMap() {
+        boolean alredySerialize = false;
+        for (File path : this.blacklist) {
+            if (path.getName().equals(this.map.getName())) {
+                alredySerialize = true;
+                break;
+            }
+        }
+
+        if (!alredySerialize) {
+            String[][] preMap = this.toArray();
+            preMap = this.filtreMapWalls(preMap);
+            if (this.mapLinks(preMap)) {
+                this.blacklist.add(this.map);
+                preMap = this.filterLinks(preMap);
+                
+                for (String[] line : preMap) {
+                    for (String c : line) {
+                        if (c.equals(" ")) {
+                            System.out.print(".");
+                        } else {
+                            System.out.print(c);
+                        }
+                    }
+                    System.out.println();
+                }
+            } else {
+                System.out.println("Links sintax error");
+            }
+        } else {
+            System.out.println(this.map.getName() + "Alredy seriaze");
+        }
+    }
+
+    private int getLineLength() {
+        try {
+            BufferedReader bf = new BufferedReader(new FileReader(this.map));
+            int lineSize = 0;
+            while (bf.readLine() != null) {
+                lineSize++;
+            }
+
+            return lineSize;
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return -1;
+    }
+
+    private String[][] toArray() {
+        try {
+            String[][] preArray;
+            BufferedReader bf = new BufferedReader(new FileReader(this.map));
+            int lineSize = this.getLineLength();
+            String line;
+            preArray = new String[lineSize][];
+            for (int i = 0; (line = bf.readLine()) != null; i++) {
+                String[] tempLine = new String[line.length()];
+                for (int j = 0; j < line.length(); j++) {
+                    tempLine[j] = ""+line.charAt(j);
+                }
+                preArray[i] = tempLine;
+            }
+            return preArray;
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    private String[][] filtreMapWalls(String[][] array) {
+        String[][] tempArray = new String[array.length - 2][];
+
+        int iTemp = 0, jTemp;
+
+        for (int i = 0; i < array.length; i++) {
+            jTemp = 0;
+            //verifica se é canto
+            if (!array[i][0].equals("┌") && !array[i][0].equals("└")) {
+                tempArray[iTemp] = new String[array[i].length - 2];
+                for (int j = 0; j < array[i].length; j++) {
+                    if (!array[i][j].equals("│")) {
+                        tempArray[iTemp][jTemp++] = array[i][j];
+                    }
+                }
+                iTemp++;
+            }
+        }
+
+        return tempArray;
+    }
+
+
 
     /**
      * Gera um arquivo com um template pronto para o mapa de acordo com o tamanho dele
@@ -51,4 +184,74 @@ public class MapCreator {
         System.out.printf("Map template %s {%d, %d} create\n", filePath.getName(), height, weight);
         return true;
     }
+
+    private String concatStringArray(String[] arr) {
+        StringBuilder temp = new StringBuilder("");
+        for (String c : arr) {
+            temp.append(c);
+        }
+        return temp.toString();
+    }
+
+    private boolean checkLinksPairs(String[][] map) {
+        int openCont = 0, closeCont = 0;
+        for (String[] line : map) {
+            for (String c : line) {
+                if (c.equals("{")) {
+                    openCont++;
+                } else if (c.equals("}")) {
+                    closeCont++;
+                }
+            }
+        }
+        return openCont == closeCont;
+    }
+
+    private boolean mapLinks(String[][] map) {
+        if (!checkLinksPairs(map)) {
+            return false;
+        }
+        for (int i = 0; i < map.length; i++) {
+            int lastLinkLength = 0;
+            for (int j = 0; j < map[i].length; j++) {
+                int tempLinkLength = 0;
+                StringBuilder temp = new StringBuilder("");
+                if (map[i][j].equals("{")) {
+                    for (int k = j+1; k < map[i].length; k++) {
+                        if (map[i][k].equals("}")) {
+                            symbolsCache.put(new MapCord(i, (j-1) - lastLinkLength), temp.toString());
+                            lastLinkLength += tempLinkLength + 2;
+                            break;
+                        } else {
+                            temp.append(map[i][k]);
+                            tempLinkLength++;
+                        }
+                    }
+                }
+            }
+        }
+
+        return true;
+    }
+
+    private String[][] filterLinks(String[][] arr) {
+        String[][] tempArr = new String[arr.length][];
+        for (int i = 0; i < tempArr.length; i++) {
+            ArrayList<String> tempLine = new ArrayList<String>();
+            boolean inKey = false;
+            for (int j = 0; j < arr[i].length; j++) {
+                if (arr[i][j].equals("{")) {
+                    inKey = true;
+                } else if (arr[i][j].equals("}")) {
+                    inKey = false;
+                } else if (!inKey) {
+                    tempLine.add(arr[i][j]);
+                }
+            }
+            tempArr[i] = tempLine.toArray(new String[tempLine.size()]);
+        }
+        return tempArr;
+    }
+
+
 }

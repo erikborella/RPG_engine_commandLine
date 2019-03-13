@@ -11,15 +11,21 @@ import core.map.MapCreator;
 import core.weapons.Melee;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class runer {
 
     public static void main(String[] args) {
-        LoadJsonObject loadJsonObject = new LoadJsonObject(
-                new File("/home/erik/Documentos/RPG_engine_commandLine/RPG/src/core/weapons/weaponsArray.json"));
-        loadJsonObject.load();
-        IdKeeperInventory.add(IdKeeper.getObjectById(0));
+
+
+        try {
+            MapCreator a = new MapCreator(new File("/home/erik/Documentos/RPG_engine_commandLine/map1.map"));
+            a.serializeMap();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
 //
 //        Scanner input = new Scanner(System.in);
 //        System.out.println("Digite o nome do seu personagem:");
