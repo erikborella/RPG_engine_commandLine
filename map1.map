@@ -1,5 +1,5 @@
 ┌────────┐
-│^{map1.map}^{map1.map}^{map1.map}^{map1.map}^{map1.map}^{map1.map}^{map1.map}^{map1.map}│
+│^{map2.map}       │
 │        │
 │        │
 │        │
@@ -8,5 +8,5 @@
 │        │
 │        │
 │        │
-│        │
+│       ^{map2.map}│
 └────────┘

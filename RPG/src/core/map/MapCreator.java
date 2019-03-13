@@ -1,6 +1,9 @@
 package core.map;
 
+import core.map.mapIdControl.MapKeeper;
+
 import java.io.*;
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -23,28 +26,34 @@ public class MapCreator {
             MapCord a = (MapCord) obj;
             return this.i == a.i && this.j == a.j;
         }
+
+        @Override
+        public int hashCode() {
+            String temp = this.i + "" + this.j;
+            return Integer.parseInt(temp);
+        }
     }
 
     private static ArrayList<File> blacklist = new ArrayList<File>();
     private HashMap<MapCord, String> symbolsCache = new HashMap<MapCord, String>();
-    private File map;
+    private File mapPath;
 
     /**
      * Seta o mapa a ser serializado
-     * @param map arquivo do mapa
+     * @param mapPath arquivo do mapa
      * @throws FileNotFoundException Arquivo não existente
      */
-    public MapCreator(File map) throws FileNotFoundException {
-        if (!map.exists()) {
+    public MapCreator(File mapPath) throws FileNotFoundException {
+        if (!mapPath.exists()) {
             throw new FileNotFoundException();
         }
-        this.map = map;
+        this.mapPath = mapPath;
     }
 
-    public void serializeMap() {
+    public Map serializeMap() throws FileNotFoundException {
         boolean alredySerialize = false;
         for (File path : this.blacklist) {
-            if (path.getName().equals(this.map.getName())) {
+            if (path.getName().equals(this.mapPath.getName())) {
                 alredySerialize = true;
                 break;
             }
@@ -54,30 +63,56 @@ public class MapCreator {
             String[][] preMap = this.toArray();
             preMap = this.filtreMapWalls(preMap);
             if (this.mapLinks(preMap)) {
-                this.blacklist.add(this.map);
-                preMap = this.filterLinks(preMap);
-                
-                for (String[] line : preMap) {
-                    for (String c : line) {
-                        if (c.equals(" ")) {
-                            System.out.print(".");
+                this.blacklist.add(this.mapPath);
+
+                preMap = this.filtreLinks(preMap);
+
+                MapEntity[][] tempMap = new MapEntity[preMap.length][];
+                Map map = new Map(tempMap, this.mapPath.getName());
+                for (int i = 0; i < tempMap.length; i++) {
+                    tempMap[i] = new MapEntity[preMap[i].length];
+                    for (int j = 0; j < tempMap[i].length; j++) {
+                        String mapName = "";
+                        if ((mapName = this.symbolsCache.get(new MapCord(i, j))) != null) {
+                            //is link
+                            File file = this.getInPathFile(mapName);
+                            if (!file.exists()) {
+                                throw new FileNotFoundException();
+                            } else {
+                                MapCreator mapCreator = new MapCreator(file);
+                                Map existentMap;
+                                if ((existentMap = MapKeeper.getMapByName(file.getName())) != null) {
+                                    tempMap[i][j] = new MapLink(null,
+                                            preMap[i][j].charAt(0),
+                                            existentMap);
+                                } else {
+                                    tempMap[i][j] = new MapLink(null,
+                                            preMap[i][j].charAt(0),
+                                            mapCreator.serializeMap());
+                                }
+                            }
                         } else {
-                            System.out.print(c);
+                            tempMap[i][j] = new MapEntity(null, preMap[i][j].charAt(0));
                         }
                     }
-                    System.out.println();
                 }
+
+                return map;
+
             } else {
                 System.out.println("Links sintax error");
             }
         } else {
-            System.out.println(this.map.getName() + "Alredy seriaze");
+            System.out.println(this.mapPath.getName() + " Alredy seriaze");
+
         }
+
+        return null;
     }
 
     private int getLineLength() {
         try {
-            BufferedReader bf = new BufferedReader(new FileReader(this.map));
+            BufferedReader bf = new BufferedReader(new FileReader(this.mapPath));
             int lineSize = 0;
             while (bf.readLine() != null) {
                 lineSize++;
@@ -92,10 +127,16 @@ public class MapCreator {
         return -1;
     }
 
+    private File getInPathFile(String name) {
+        int lastLash = this.mapPath.toString().lastIndexOf("/") + 1;
+        File file = new File(this.mapPath.toString().substring(0, lastLash) + name);
+        return file;
+    }
+
     private String[][] toArray() {
         try {
             String[][] preArray;
-            BufferedReader bf = new BufferedReader(new FileReader(this.map));
+            BufferedReader bf = new BufferedReader(new FileReader(this.mapPath));
             int lineSize = this.getLineLength();
             String line;
             preArray = new String[lineSize][];
@@ -234,7 +275,7 @@ public class MapCreator {
         return true;
     }
 
-    private String[][] filterLinks(String[][] arr) {
+    private String[][] filtreLinks(String[][] arr) {
         String[][] tempArr = new String[arr.length][];
         for (int i = 0; i < tempArr.length; i++) {
             ArrayList<String> tempLine = new ArrayList<String>();

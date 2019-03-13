@@ -7,7 +7,9 @@ import core.idControl.IdKeeper;
 import core.idControl.IdKeeperInventory;
 import core.idControl.LoadJsonObject;
 import core.Dice;
+import core.map.Map;
 import core.map.MapCreator;
+import core.map.mapIdControl.MapKeeper;
 import core.weapons.Melee;
 
 import java.io.File;
@@ -21,7 +23,8 @@ public class runer {
 
         try {
             MapCreator a = new MapCreator(new File("/home/erik/Documentos/RPG_engine_commandLine/map1.map"));
-            a.serializeMap();
+            Map b = a.serializeMap();
+            System.out.println(MapKeeper.getMapByName("map1.map"));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
