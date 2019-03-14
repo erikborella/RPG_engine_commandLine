@@ -12,13 +12,26 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
+/**
+ * Carrega um objeto JSON com o formato estabelecido em 5 chaves com um vetor de itens dentro.
+ * As chaves são melee, ranged, shield, ammunition e magic.
+ * São criados instancias, que automaticamente são adicionadas na classe {@link IdKeeper}
+ */
 public class LoadJsonObject {
     File jsonPath;
 
+    /**
+     * Define o arquivo json a ser carregado
+     * @param jsonPath Arquivo Json
+     */
     public LoadJsonObject(File jsonPath) {
         this.jsonPath = jsonPath;
     }
 
+    /**
+     * Faz o carregamento
+     * @return se foi executado com sucesso
+     */
     public boolean load() {
         JSONObject jsonObject;
         JSONParser parser = new JSONParser();

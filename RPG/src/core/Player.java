@@ -2,6 +2,10 @@ package core;
 
 import core.idControl.IdKeeper;
 
+/**
+ * Classe player, representa o jogador com vida, mana, e stamina.
+ * Tem um inventario e uma mão para segurar seus itens. E um quantidade de peso maximo que voce pode caregar
+ */
 public class Player extends GameObject {
 
     private int maxMana;
@@ -17,6 +21,18 @@ public class Player extends GameObject {
     private GameObject hand;
     private Inventory inv;
 
+    /**
+     * Cria um Jogador
+     * @param name Nome do jogador
+     * @param description Descrição dele
+     * @param size Tamanho
+     * @param weight Peso
+     * @param maxMana Mana maxima no começo
+     * @param maxHealth Vida maxima no começo
+     * @param maxStamina Stamina maxima no começo
+     * @param maxCarryWeight Peso maximo que ele vai caregar no começo
+     * @param inv Instancia de um objeto inventario
+     */
     public Player(String name, String description, int size, double weight, int maxMana, int maxHealth, int maxStamina,
                   double maxCarryWeight, Inventory inv) {
         super(name, description, size, weight);

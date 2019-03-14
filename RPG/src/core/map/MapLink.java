@@ -10,4 +10,8 @@ public class MapLink extends MapEntity {
         super(object, symbol);
         this.link = link;
     }
+
+    public Map getLink() {
+        return link;
+    }
 }

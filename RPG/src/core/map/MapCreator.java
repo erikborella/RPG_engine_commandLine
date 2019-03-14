@@ -3,7 +3,6 @@ package core.map;
 import core.map.mapIdControl.MapKeeper;
 
 import java.io.*;
-import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -12,6 +11,32 @@ import java.util.HashMap;
  */
 public class MapCreator {
 
+    private static ArrayList<File> blacklist = new ArrayList<File>();
+    private HashMap<MapCord, String> symbolsCache = new HashMap<MapCord, String>();
+    private File mapPath;
+
+    /**
+     * Exeção para se caso é tentado converter um arquivo ja convertido
+     */
+    public class CurrentMapSerializeExecption extends Exception {
+
+        /**
+         * Define a mensagem de erro
+         * @param message Mensagem de erro
+         */
+        public CurrentMapSerializeExecption(String message) {
+            super(message);
+        }
+
+        /**
+         * Pega a mensagem de erro
+         * @return Mensagem de erro
+         */
+        @Override
+        public String getMessage() {
+            return super.getMessage();
+        }
+    }
     private class MapCord {
         public int i;
         public int j;
@@ -34,10 +59,6 @@ public class MapCreator {
         }
     }
 
-    private static ArrayList<File> blacklist = new ArrayList<File>();
-    private HashMap<MapCord, String> symbolsCache = new HashMap<MapCord, String>();
-    private File mapPath;
-
     /**
      * Seta o mapa a ser serializado
      * @param mapPath arquivo do mapa
@@ -50,7 +71,13 @@ public class MapCreator {
         this.mapPath = mapPath;
     }
 
-    public Map serializeMap() throws FileNotFoundException {
+    /**
+     * Faz a conversão do mapa, e retorna um objeto {@link Map} prontinho
+     * @return Mapa convertido
+     * @throws FileNotFoundException Arquivo inexistente
+     * @throws CurrentMapSerializeExecption Arquivo atual, ou com mesmo nome ja foi convertido
+     */
+    public Map convertMap() throws FileNotFoundException, CurrentMapSerializeExecption {
         boolean alredySerialize = false;
         for (File path : this.blacklist) {
             if (path.getName().equals(this.mapPath.getName())) {
@@ -61,7 +88,7 @@ public class MapCreator {
 
         if (!alredySerialize) {
             String[][] preMap = this.toArray();
-            preMap = this.filtreMapWalls(preMap);
+//            preMap = this.filtreMapWalls(preMap);
             if (this.mapLinks(preMap)) {
                 this.blacklist.add(this.mapPath);
 
@@ -82,13 +109,16 @@ public class MapCreator {
                                 MapCreator mapCreator = new MapCreator(file);
                                 Map existentMap;
                                 if ((existentMap = MapKeeper.getMapByName(file.getName())) != null) {
+                                    if (existentMap.getName().equals(this.mapPath.getName())) {
+                                        throw new CurrentMapSerializeExecption("Link do propio mapa");
+                                    }
                                     tempMap[i][j] = new MapLink(null,
                                             preMap[i][j].charAt(0),
                                             existentMap);
                                 } else {
                                     tempMap[i][j] = new MapLink(null,
                                             preMap[i][j].charAt(0),
-                                            mapCreator.serializeMap());
+                                            mapCreator.convertMap());
                                 }
                             }
                         } else {
@@ -178,54 +208,6 @@ public class MapCreator {
         return tempArray;
     }
 
-
-
-    /**
-     * Gera um arquivo com um template pronto para o mapa de acordo com o tamanho dele
-     * @param filePath Localização da criação do arquivo
-     * @param height altura do mapa
-     * @param weight largura do mapa
-     * @return Se um arquivo com o mesmo nome existir, retorna false e não gera nada. Se não retorna true e cria o arquivo
-     */
-    public static boolean gerateTemplate(File filePath, int height, int weight) {
-        if (filePath.exists()) {
-            return false;
-        }
-        StringBuilder temp = new StringBuilder("");
-        for (int i = 0; i < height; i++) {
-            for (int j = 0; j < weight; j++) {
-                if (i == 0 && j == 0) {
-                    temp.append("┌");
-                } else if (i == 0 && j == weight-1) {
-                    temp.append("┐");
-                } else if (i == height-1 && j == 0) {
-                    temp.append("└");
-                } else if (i == height-1 && j == weight-1) {
-                    temp.append("┘");
-                } else if (i == 0 || i == height-1) {
-                    temp.append("─");
-                } else if (j == 0 || j == weight-1) {
-                    temp.append("│");
-                } else {
-                    temp.append(" ");
-                }
-            }
-            temp.append("\n");
-        }
-
-        try {
-            FileWriter a = new FileWriter(filePath);
-            a.write(temp.toString());
-            a.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-            return false;
-        }
-
-        System.out.printf("Map template %s {%d, %d} create\n", filePath.getName(), height, weight);
-        return true;
-    }
-
     private String concatStringArray(String[] arr) {
         StringBuilder temp = new StringBuilder("");
         for (String c : arr) {
@@ -294,5 +276,50 @@ public class MapCreator {
         return tempArr;
     }
 
+    /**
+     * Gera um arquivo com um template pronto para o mapa de acordo com o tamanho dele
+     * @param filePath Localização da criação do arquivo
+     * @param height altura do mapa
+     * @param weight largura do mapa
+     * @return Se um arquivo com o mesmo nome existir, retorna false e não gera nada. Se não retorna true e cria o arquivo
+     */
+    public static boolean gerateTemplate(File filePath, int height, int weight) {
+        if (filePath.exists()) {
+            return false;
+        }
+        StringBuilder temp = new StringBuilder("");
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; j < weight; j++) {
+                if (i == 0 && j == 0) {
+                    temp.append("┌");
+                } else if (i == 0 && j == weight-1) {
+                    temp.append("┐");
+                } else if (i == height-1 && j == 0) {
+                    temp.append("└");
+                } else if (i == height-1 && j == weight-1) {
+                    temp.append("┘");
+                } else if (i == 0 || i == height-1) {
+                    temp.append("─");
+                } else if (j == 0 || j == weight-1) {
+                    temp.append("│");
+                } else {
+                    temp.append(" ");
+                }
+            }
+            temp.append("\n");
+        }
+
+        try {
+            FileWriter a = new FileWriter(filePath);
+            a.write(temp.toString());
+            a.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
+
+        System.out.printf("Map template %s {%d, %d} create\n", filePath.getName(), height, weight);
+        return true;
+    }
 
 }

@@ -2,6 +2,7 @@ package core;
 
 import core.idControl.AutoId;
 import core.idControl.IdKeeper;
+import core.idControl.IdKeeperInventory;
 
 /**
  * Classe que serve como base para todos os objetos interajiveis no jogo
@@ -86,6 +87,7 @@ public abstract class GameObject {
     public double getWeight() {
         return weight;
     }
+
 
     public abstract ActionLog action();
 }

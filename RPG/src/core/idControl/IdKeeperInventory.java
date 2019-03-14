@@ -4,6 +4,9 @@ import core.GameObject;
 
 import java.util.ArrayList;
 
+/**
+ * Essa classe vai manter um registro de todos os objetos em um inventario
+ */
 public class IdKeeperInventory {
     private static ArrayList<GameObject> idList = new ArrayList<GameObject>();
 
