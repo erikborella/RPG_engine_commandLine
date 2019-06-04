@@ -9,8 +9,8 @@ public class Dice {
     private Random gerador = new Random();
 
     private int d(int n){
-        int dado = gerador.nextInt(n+1);
-        return dado;
+        int dado = gerador.nextInt(n);
+        return ++dado;
     }
 
     /**
