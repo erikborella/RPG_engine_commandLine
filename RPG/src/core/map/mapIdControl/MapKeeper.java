@@ -97,9 +97,9 @@ public class MapKeeper {
                     if (mapEntities[i][j] instanceof MapLink) {
                         MapLink prop = (MapLink)mapEntities[i][j];
                         temp.append("\t");
-                        temp.append(prop.getLink().getName());
+                        temp.append(prop.getLinkedMap().getName());
                         temp.append("\t");
-                        temp.append(String.format("ID: %d\t", prop.getLink().getId()));
+                        temp.append(String.format("ID: %d\t", prop.getLinkedMap().getId()));
                         temp.append(String.format("P: %d,%d\n", i, j));
                     }
                 }

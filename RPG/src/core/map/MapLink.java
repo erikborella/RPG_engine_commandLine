@@ -11,7 +11,7 @@ public class MapLink extends MapEntity {
         this.link = link;
     }
 
-    public Map getLink() {
+    public Map getLinkedMap() {
         return link;
     }
 }
