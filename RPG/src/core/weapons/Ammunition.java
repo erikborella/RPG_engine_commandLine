@@ -3,6 +3,9 @@ package core.weapons;
 import core.ActionLog;
 import core.GameObject;
 
+/**
+ * Objetos para muniçoes
+ */
 public class Ammunition extends GameObject {
 
     private String damage;

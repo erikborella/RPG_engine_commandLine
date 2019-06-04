@@ -2,6 +2,9 @@ package core.map;
 
 import core.GameObject;
 
+/**
+ * Um link de mapa permite fazer a passagem para outros mapas
+ */
 public class MapLink extends MapEntity {
     
     private Map link;

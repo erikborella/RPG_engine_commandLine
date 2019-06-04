@@ -1,3 +1,6 @@
+/**
+ * Pacote com todo o necessario
+ */
 package core;
 
 import core.idControl.AutoId;
