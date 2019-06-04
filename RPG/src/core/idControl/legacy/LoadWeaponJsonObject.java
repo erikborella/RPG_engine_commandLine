@@ -120,7 +120,7 @@ public class LoadWeaponJsonObject {
             int size = Integer.parseInt((String) ( (JSONObject) array.get(i) ).get("size"));
             double weight = Double.parseDouble((String) ( (JSONObject) array.get(i) ).get("weight"));
 
-            new Magic(name, description, size, weight);
+            new Magic(name, description, size, weight, 2,"02" ,2);
         }
     }
 }

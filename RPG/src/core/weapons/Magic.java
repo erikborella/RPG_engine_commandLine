@@ -4,7 +4,7 @@ import core.ActionLog;
 import core.GameObject;
 
 public class Magic extends Ranged {
-    
+
     private double mana;
 
     public Magic(String name, String description, int size, double weight, int distance, String damage, double mana) {
