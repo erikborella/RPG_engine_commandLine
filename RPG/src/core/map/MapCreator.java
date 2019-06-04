@@ -159,6 +159,9 @@ public class MapCreator {
 
     private File getInPathFile(String name) {
         int lastLash = this.mapPath.toString().lastIndexOf("/") + 1;
+        if (lastLash < 0) {
+            lastLash = this.mapPath.toString().lastIndexOf("\\") + 1;
+        }
         File file = new File(this.mapPath.toString().substring(0, lastLash) + name);
         return file;
     }

@@ -17,7 +17,5 @@ public class runer {
 
         Map map = new MapCreator(new File("RPG/src/maps/mapa1.map")).convertMap();
         LoadObject loadObject = new LoadObject(new File("RPG/src/core/weapons/json"));
-
-
     }
 }
