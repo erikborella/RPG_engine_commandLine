@@ -7,7 +7,7 @@ import java.util.ArrayList;
 /**
  * Essa classe é um inventario para GameObjects
  */
-public class Inventory {
+public class Chest {
     private int maxSize;
     private ArrayList<GameObject> itens = new ArrayList<GameObject>();
 
@@ -40,7 +40,7 @@ public class Inventory {
      * Cria um novo inventario com um tamnho maximo
      * @param maxSize Tamanho maximo de itens que podem ser colocados
      */
-    public Inventory(int maxSize) {
+    public Chest(int maxSize) {
         this.maxSize = maxSize;
     }
 
