@@ -12,6 +12,14 @@ public class Melee extends GameObject {
         this.damage = damage;
     }
 
+    public String getDamage() {
+        return damage;
+    }
+
+    public void setDamage(String damage) {
+        this.damage = damage;
+    }
+
     public ActionLog action() {
         return new ActionLog("Voce olhou sua espada", 0, 0, 0);
     }

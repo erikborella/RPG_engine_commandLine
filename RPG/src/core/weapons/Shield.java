@@ -12,6 +12,14 @@ public class Shield extends GameObject {
         this.defence = defence;
     }
 
+    public String getDefence() {
+        return defence;
+    }
+
+    public void setDefence(String defence) {
+        this.defence = defence;
+    }
+
     public ActionLog action() {
         return new ActionLog("Voce olhou seu escudo", 0, 0, 0);
     }

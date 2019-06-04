@@ -1,6 +1,7 @@
-package core.idControl;
+package core.idControl.legacy;
 
 
+import core.idControl.IdKeeper;
 import core.weapons.*;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -17,14 +18,14 @@ import java.io.IOException;
  * As chaves são melee, ranged, shield, ammunition e magic.
  * São criados instancias, que automaticamente são adicionadas na classe {@link IdKeeper}
  */
-public class LoadJsonObject {
+public class LoadWeaponJsonObject {
     File jsonPath;
 
     /**
      * Define o arquivo json a ser carregado
      * @param jsonPath Arquivo Json
      */
-    public LoadJsonObject(File jsonPath) {
+    public LoadWeaponJsonObject(File jsonPath) {
         this.jsonPath = jsonPath;
     }
 
@@ -94,7 +95,7 @@ public class LoadJsonObject {
             String description = (String) ( (JSONObject) array.get(i) ).get("description");
             int size = Integer.parseInt((String) ( (JSONObject) array.get(i) ).get("size"));
             double weight = Double.parseDouble((String) ( (JSONObject) array.get(i) ).get("weight"));
-            double damage = Double.parseDouble((String) ((JSONObject) array.get(i)).get("damage"));
+            String damage = (String) ((JSONObject) array.get(i)).get("damage");
 
             new Ammunition(name, description, size, weight, damage, 0);
         }

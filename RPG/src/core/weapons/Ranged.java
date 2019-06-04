@@ -14,6 +14,22 @@ public class Ranged extends GameObject {
         this.damage = damage;
     }
 
+    public int getDistance() {
+        return distance;
+    }
+
+    public void setDistance(int distance) {
+        this.distance = distance;
+    }
+
+    public String getDamage() {
+        return damage;
+    }
+
+    public void setDamage(String damage) {
+        this.damage = damage;
+    }
+
     public ActionLog action() {
         return new ActionLog("Voce olhou seu arco", 0, 0, 0);
     }
