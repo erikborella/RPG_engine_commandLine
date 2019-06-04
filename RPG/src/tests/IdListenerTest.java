@@ -3,23 +3,15 @@ import core.ActionLog;
 import core.idControl.AutoId;
 import core.idControl.IdKeeper;
 import core.GameObject;
+import core.weapons.Melee;
+import core.idControl.LoadObject;
+
+import java.io.File;
 
 public class IdListenerTest {
-    public class ed extends GameObject {
-        public ed(String name, String description, int size, double weight) {
-            super(name, description, size, weight);
-        }
-        @Override
-        public ActionLog action() {
-            return new ActionLog("", 0, 0, 0);
-        }
-    }
-
     public void run() {
-        ed a = new ed("a", "a", AutoId.getNewId(), 10);
-        ed b = new ed("a", "s", AutoId.getNewId(), 10);
-        IdKeeper.add(a);
-        IdKeeper.add(a);
+        Melee a = (Melee) new LoadObject(new File("/home/erik/Documentos/RPG_engine_commandLine/RPG/src/core/weapons/weapons.json")).getByName("Adaga");
+        System.out.println(IdKeeper.add(a));
 
         if (IdKeeper.getGameObjects().length == 1) {
             System.out.println("Funciona");

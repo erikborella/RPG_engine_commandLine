@@ -23,8 +23,19 @@ public class LoadObject {
 
     JSONParser jsonParser = new JSONParser();
 
-    public LoadObject(File initialFile) {
-        this.files.add(initialFile);
+    public LoadObject(File jsonFolder) {
+        for (File file : jsonFolder.listFiles()) {
+            if (file.isFile() && this.isJson(file)) {
+                this.files.add(file);
+            }
+        }
+    }
+
+
+    private boolean isJson(File file) {
+        String fileName = file.getName();
+        String extension = fileName.substring(fileName.lastIndexOf('.')+1, fileName.length());
+        return extension.equals("json");
     }
 
     public GameObject getByName(String name) {
