@@ -3,6 +3,9 @@ package core.weapons;
 import core.ActionLog;
 import core.GameObject;
 
+/**
+ * Objetos para Melees
+ */
 public class Melee extends GameObject {
 
     private String damage;

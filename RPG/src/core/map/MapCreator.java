@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
+ * Classe para criaçao de mapas
  * @version 0.5
  */
 public class MapCreator {

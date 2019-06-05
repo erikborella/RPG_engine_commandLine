@@ -16,6 +16,9 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ * Essa classe serve para carregar objetos nos arquivos de configuraçoes deles em formato json
+ */
 public class LoadObject {
 
     private ArrayList<File> files = new ArrayList<>();
@@ -23,6 +26,10 @@ public class LoadObject {
 
     JSONParser jsonParser = new JSONParser();
 
+    /**
+     * Recebe uma pasta inicial que devera conter todos os itens basicos
+     * @param jsonFolder Pasta de configuraçao basica de objetos
+     */
     public LoadObject(File jsonFolder) {
         for (File file : jsonFolder.listFiles()) {
             if (file.isFile() && this.isJson(file)) {
@@ -38,6 +45,11 @@ public class LoadObject {
         return extension.equals("json");
     }
 
+    /**
+     * Procura por um objeto de jogo nos arquivos de configuraçoes adicionados e retorna uma instacia dele
+     * @param name Nome do objeto
+     * @return
+     */
     public GameObject getByName(String name) {
         for (File file : this.files) {
             try {

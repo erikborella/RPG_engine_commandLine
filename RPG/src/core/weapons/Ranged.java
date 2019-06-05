@@ -2,7 +2,9 @@ package core.weapons;
 
 import core.ActionLog;
 import core.GameObject;
-
+/**
+ * Objetos para ranged
+ */
 public class Ranged extends GameObject {
 
     private int distance;

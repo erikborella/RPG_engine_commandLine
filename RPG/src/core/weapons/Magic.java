@@ -3,6 +3,9 @@ package core.weapons;
 import core.ActionLog;
 import core.GameObject;
 
+/**
+ * Objetos para magias
+ */
 public class Magic extends Ranged {
 
     private double mana;
