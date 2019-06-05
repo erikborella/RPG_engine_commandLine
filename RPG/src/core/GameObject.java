@@ -21,6 +21,7 @@ public abstract class GameObject {
      * @param size tamanho que um objeto vai ocupar em um inventario
      * @param weight Peso do objeto
      */
+
     public GameObject(String name, String description, int size, double weight) {
         this.name = name;
         this.description = description;

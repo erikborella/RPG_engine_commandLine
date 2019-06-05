@@ -13,35 +13,97 @@ public class Player extends GameObject {
     private double mana;
     private double health;
     private double stamina;
+    private int level;
+
+
+    /*
+    * Stats do player, inicialmente vão setados na criação do personagem
+    * e posteriormente são aumentados com o aumento no level do personagem
+    * */
+    private int strength;
+    private int dexterity;
+    private int contituition;
+    private int inteligence;
+    private int wisdom;
+    private int charisma;
 
     private double maxCarryWeight;
 
     private GameObject hand;
     private Chest inv;
 
-    /**
-     * Cria um Jogador
-     * @param name Nome do jogador
-     * @param description Descrição dele
-     * @param size Tamanho
-     * @param weight Peso
-     * @param maxMana Mana maxima no começo
-     * @param maxHealth Vida maxima no começo
-     * @param maxStamina Stamina maxima no começo
-     * @param maxCarryWeight Peso maximo que ele vai caregar no começo
-     * @param inv Instancia de um objeto inventario
-     */
-    public Player(String name, String description, int size, double weight, int maxMana, int maxHealth, int maxStamina,
-                  double maxCarryWeight, Chest inv) {
+    public Player(String name, String description, int size, double weight, int maxMana, int maxHealth, int maxStamina, double mana, double health, double stamina, int level, int strength, int dexterity, int contituition, int inteligence, int wisdom, int charisma, Chest inv) {
         super(name, description, size, weight);
         this.maxMana = maxMana;
-        this.mana = maxMana;
         this.maxHealth = maxHealth;
-        this.health = maxHealth;
         this.maxStamina = maxStamina;
-        this.stamina = maxStamina;
-        this.maxCarryWeight = maxCarryWeight;
+        this.mana = mana;
+        this.health = health;
+        this.stamina = stamina;
+        this.level = level;
+        this.strength = strength;
+        this.dexterity = dexterity;
+        this.contituition = contituition;
+        this.inteligence = inteligence;
+        this.wisdom = wisdom;
+        this.charisma = charisma;
         this.inv = inv;
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
+    }
+
+    public int getStrength() {
+        return strength;
+    }
+
+    public void setStrength(int strength) {
+        this.strength = strength;
+    }
+
+    public int getDexterity() {
+        return dexterity;
+    }
+
+    public void setDexterity(int dexterity) {
+        this.dexterity = dexterity;
+    }
+
+    public int getContituition() {
+        return contituition;
+    }
+
+    public void setContituition(int contituition) {
+        this.contituition = contituition;
+    }
+
+    public int getInteligence() {
+        return inteligence;
+    }
+
+    public void setInteligence(int inteligence) {
+        this.inteligence = inteligence;
+    }
+
+    public int getWisdom() {
+        return wisdom;
+    }
+
+    public void setWisdom(int wisdom) {
+        this.wisdom = wisdom;
+    }
+
+    public int getCharisma() {
+        return charisma;
+    }
+
+    public void setCharisma(int charisma) {
+        this.charisma = charisma;
     }
 
     public int getMaxMana() {
